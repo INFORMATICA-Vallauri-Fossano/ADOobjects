@@ -28,29 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgv = new System.Windows.Forms.DataGridView();
+            this.dgvAlunni = new System.Windows.Forms.DataGridView();
             this.btnNumeroAlunni = new System.Windows.Forms.Button();
             this.btnVisualizzaAlunni = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbMaterie = new System.Windows.Forms.ComboBox();
             this.grbVoti = new System.Windows.Forms.GroupBox();
+            this.btnInserireVoto = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.nudVoto = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbAlunno = new System.Windows.Forms.ComboBox();
-            this.nudVoto = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnInserireVoto = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            this.dgvMaterie = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAlunni)).BeginInit();
             this.grbVoti.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudVoto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMaterie)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgv
+            // dgvAlunni
             // 
-            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Location = new System.Drawing.Point(392, 12);
-            this.dgv.Name = "dgv";
-            this.dgv.Size = new System.Drawing.Size(396, 426);
-            this.dgv.TabIndex = 0;
+            this.dgvAlunni.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAlunni.Location = new System.Drawing.Point(392, 12);
+            this.dgvAlunni.Name = "dgvAlunni";
+            this.dgvAlunni.Size = new System.Drawing.Size(396, 426);
+            this.dgvAlunni.TabIndex = 0;
             // 
             // btnNumeroAlunni
             // 
@@ -106,23 +108,24 @@
             this.grbVoti.TabStop = false;
             this.grbVoti.Text = "INSERIMENTO VOTI";
             // 
-            // label2
+            // btnInserireVoto
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 54);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "ALUNNO";
+            this.btnInserireVoto.Location = new System.Drawing.Point(113, 121);
+            this.btnInserireVoto.Name = "btnInserireVoto";
+            this.btnInserireVoto.Size = new System.Drawing.Size(173, 23);
+            this.btnInserireVoto.TabIndex = 6;
+            this.btnInserireVoto.Text = "INSERIRE";
+            this.btnInserireVoto.UseVisualStyleBackColor = true;
+            this.btnInserireVoto.Click += new System.EventHandler(this.btnInserireVoto_Click);
             // 
-            // cmbAlunno
+            // label3
             // 
-            this.cmbAlunno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbAlunno.FormattingEnabled = true;
-            this.cmbAlunno.Location = new System.Drawing.Point(89, 51);
-            this.cmbAlunno.Name = "cmbAlunno";
-            this.cmbAlunno.Size = new System.Drawing.Size(279, 21);
-            this.cmbAlunno.TabIndex = 6;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 80);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(37, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "VOTO";
             // 
             // nudVoto
             // 
@@ -153,48 +156,57 @@
             0,
             0});
             // 
-            // label3
+            // label2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 80);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "VOTO";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 54);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "ALUNNO";
             // 
-            // btnInserireVoto
+            // cmbAlunno
             // 
-            this.btnInserireVoto.Location = new System.Drawing.Point(113, 121);
-            this.btnInserireVoto.Name = "btnInserireVoto";
-            this.btnInserireVoto.Size = new System.Drawing.Size(173, 23);
-            this.btnInserireVoto.TabIndex = 6;
-            this.btnInserireVoto.Text = "INSERIRE";
-            this.btnInserireVoto.UseVisualStyleBackColor = true;
-            this.btnInserireVoto.Click += new System.EventHandler(this.btnInserireVoto_Click);
+            this.cmbAlunno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAlunno.FormattingEnabled = true;
+            this.cmbAlunno.Location = new System.Drawing.Point(89, 51);
+            this.cmbAlunno.Name = "cmbAlunno";
+            this.cmbAlunno.Size = new System.Drawing.Size(279, 21);
+            this.cmbAlunno.TabIndex = 6;
+            // 
+            // dgvMaterie
+            // 
+            this.dgvMaterie.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMaterie.Location = new System.Drawing.Point(12, 298);
+            this.dgvMaterie.Name = "dgvMaterie";
+            this.dgvMaterie.Size = new System.Drawing.Size(374, 140);
+            this.dgvMaterie.TabIndex = 6;
             // 
             // frmADONET
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dgvMaterie);
             this.Controls.Add(this.grbVoti);
             this.Controls.Add(this.btnVisualizzaAlunni);
             this.Controls.Add(this.btnNumeroAlunni);
-            this.Controls.Add(this.dgv);
+            this.Controls.Add(this.dgvAlunni);
             this.Name = "frmADONET";
             this.Text = "ALUNNI";
             this.Load += new System.EventHandler(this.frmObject_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAlunni)).EndInit();
             this.grbVoti.ResumeLayout(false);
             this.grbVoti.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudVoto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMaterie)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgv;
+        private System.Windows.Forms.DataGridView dgvAlunni;
         private System.Windows.Forms.Button btnNumeroAlunni;
         private System.Windows.Forms.Button btnVisualizzaAlunni;
         private System.Windows.Forms.Label label1;
@@ -205,6 +217,7 @@
         private System.Windows.Forms.ComboBox cmbAlunno;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnInserireVoto;
+        private System.Windows.Forms.DataGridView dgvMaterie;
     }
 }
 

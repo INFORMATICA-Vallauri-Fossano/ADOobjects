@@ -25,7 +25,7 @@ namespace ADOobjects
 
         private void frmObject_Load(object sender, EventArgs e)
         {
-            string dbName = "DB_4C2025.MDF";
+            string dbName = "ANRANGORAMOSDB.MDF";
             string cnString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" +
 Application.StartupPath + "\\" + dbName +
 ";Integrated Security=True;Connect Timeout=30";
@@ -46,6 +46,8 @@ Application.StartupPath + "\\" + dbName +
             }
 
         }
+
+        
 
         private void popolaCmbAlunni()
         {
@@ -131,8 +133,8 @@ Application.StartupPath + "\\" + dbName +
                 adp = new SqlDataAdapter(cmd);
                 adp.Fill(dt);
 
-                dgv.DataSource = null;
-                dgv.DataSource = dt;
+                dgvAlunni.DataSource = null;
+                dgvAlunni.DataSource = dt;
                 if (dt.Rows.Count == 0) MessageBox.Show("NESSUN DATO SODDISFA L'ISTRUZIONE SCRITTA");
                 else
                 {
@@ -146,16 +148,31 @@ Application.StartupPath + "\\" + dbName +
             }
 
         }
+        public string idMateria { get=>cmbMaterie.SelectedValue.ToString(); }
+        public string idAlunno { get => cmbAlunno.SelectedValue.ToString(); }
+        public int voto { get => (int)nudVoto.Value; }
 
         private void btnInserireVoto_Click(object sender, EventArgs e)
         {
+                DataTable dt = new DataTable();
             try
             {
                 cmd = new SqlCommand();
-                cmd.Connection = cn;//Connessione fatta nel foarm loaf
+                cmd.Connection = cn;//Connessione fatta nel foarm load
                 cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "INSERT INTO VOTI(IDMATERIA,IDALUNNO,VOTO)" +
+                    "VALUES" +
+                    $"('{idMateria}',{idAlunno},{voto});";
+                cmd.ExecuteNonQuery();
 
-                cmd.CommandText = "INSERT INTO ALUNNI(MATERIA,COMPRESENZA)";
+                cmd.CommandText = "SELECT * FROM VOTI";
+
+                adp = new SqlDataAdapter(cmd);
+                adp.Fill(dt);
+
+                dgvMaterie.DataSource = null;
+                dgvMaterie.DataSource = dt;
+
             }
             catch (Exception EX)
             {
