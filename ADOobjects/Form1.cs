@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 //
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
+
 namespace ADOobjects
 {
     public partial class frmADONET : Form
@@ -177,6 +179,30 @@ Application.StartupPath + "\\" + dbName +
             catch (Exception EX)
             {
                 MessageBox.Show(EX.Message);
+            }
+        }
+        public string Query { get => txtQuery.Text;set => txtQuery.Text = value; }
+        private void btnEseguiQuery_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                if (!Regex.IsMatch(Query, @"^\s*SELECT",RegexOptions.IgnoreCase)) throw new Exception("La query non comincia con select");
+                cmd = new SqlCommand();
+                cmd.Connection = cn;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = Query;
+                cmd.ExecuteNonQuery();
+                adp = new SqlDataAdapter(cmd);
+                adp.Fill(dt) ;
+                dgvAlunni.DataSource = null;
+                dgvAlunni.DataSource = dt;
+
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
             }
         }
     }

@@ -40,6 +40,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cmbAlunno = new System.Windows.Forms.ComboBox();
             this.dgvMaterie = new System.Windows.Forms.DataGridView();
+            this.txtQuery = new System.Windows.Forms.TextBox();
+            this.btnEseguiQuery = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlunni)).BeginInit();
             this.grbVoti.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudVoto)).BeginInit();
@@ -51,7 +53,7 @@
             this.dgvAlunni.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAlunni.Location = new System.Drawing.Point(392, 12);
             this.dgvAlunni.Name = "dgvAlunni";
-            this.dgvAlunni.Size = new System.Drawing.Size(396, 426);
+            this.dgvAlunni.Size = new System.Drawing.Size(396, 599);
             this.dgvAlunni.TabIndex = 0;
             // 
             // btnNumeroAlunni
@@ -177,16 +179,36 @@
             // dgvMaterie
             // 
             this.dgvMaterie.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMaterie.Location = new System.Drawing.Point(12, 298);
+            this.dgvMaterie.Location = new System.Drawing.Point(794, 12);
             this.dgvMaterie.Name = "dgvMaterie";
-            this.dgvMaterie.Size = new System.Drawing.Size(374, 140);
+            this.dgvMaterie.Size = new System.Drawing.Size(374, 599);
             this.dgvMaterie.TabIndex = 6;
+            // 
+            // txtQuery
+            // 
+            this.txtQuery.Location = new System.Drawing.Point(12, 298);
+            this.txtQuery.Multiline = true;
+            this.txtQuery.Name = "txtQuery";
+            this.txtQuery.Size = new System.Drawing.Size(374, 218);
+            this.txtQuery.TabIndex = 7;
+            // 
+            // btnEseguiQuery
+            // 
+            this.btnEseguiQuery.Location = new System.Drawing.Point(213, 522);
+            this.btnEseguiQuery.Name = "btnEseguiQuery";
+            this.btnEseguiQuery.Size = new System.Drawing.Size(173, 23);
+            this.btnEseguiQuery.TabIndex = 9;
+            this.btnEseguiQuery.Text = "INSERIRE";
+            this.btnEseguiQuery.UseVisualStyleBackColor = true;
+            this.btnEseguiQuery.Click += new System.EventHandler(this.btnEseguiQuery_Click);
             // 
             // frmADONET
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1176, 623);
+            this.Controls.Add(this.btnEseguiQuery);
+            this.Controls.Add(this.txtQuery);
             this.Controls.Add(this.dgvMaterie);
             this.Controls.Add(this.grbVoti);
             this.Controls.Add(this.btnVisualizzaAlunni);
@@ -201,6 +223,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudVoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterie)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -218,6 +241,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnInserireVoto;
         private System.Windows.Forms.DataGridView dgvMaterie;
+        private System.Windows.Forms.TextBox txtQuery;
+        private System.Windows.Forms.Button btnEseguiQuery;
     }
 }
 
